@@ -7,11 +7,11 @@ def start_client():
         expression = input("Entrez une expression à calculer ou quit pour quitter: ")
         if expression.lower() == "quit":
             break
-        client.sendall(expression.encode())
+        client.sendall(expression.encode('utf-8'))
         if expression.lower() == 'quit_server':
             break
         result = client.recv(1024)
-        print("Résultat: ", result.decode())
+        print("Résultat: ", result.decode('utf-8'))
     client.close()
 
 if __name__ == "__main__":
